@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/netrebel/kube-api/src/handlers"
-	"github.com/netrebel/kube-api/src/storage"
+	"github.com/netrebel/kube-api/handlers"
+	"github.com/netrebel/kube-api/storage"
 	"log"
 	"net/http"
 )

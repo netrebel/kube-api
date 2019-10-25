@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/netrebel/kube-api/src/storage"
+	"github.com/netrebel/kube-api/storage"
 )
 
 // PutKey returns an http.Handler that can set a value for the key registered by Gorilla

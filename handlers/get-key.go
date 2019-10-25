@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/netrebel/kube-api/src/storage"
+	"github.com/netrebel/kube-api/storage"
 )
 
 // GetKey returns an http.Handler that can get a key registered by Gorilla mux
