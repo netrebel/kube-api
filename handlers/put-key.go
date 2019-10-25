@@ -3,6 +3,7 @@ package handlers
 import (
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
 
 	"github.com/netrebel/kube-api/storage"
@@ -19,6 +20,7 @@ func PutKey(db storage.DB) http.Handler {
 		}
 		defer r.Body.Close()
 		val, err := ioutil.ReadAll(r.Body)
+		log.Printf("Saving %s:%s", key, val)
 		if err != nil {
 			http.Error(w, "error reading PUT body", http.StatusBadRequest)
 			return

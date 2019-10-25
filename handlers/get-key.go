@@ -3,6 +3,7 @@ package handlers
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/netrebel/kube-api/storage"
@@ -13,6 +14,7 @@ import (
 func GetKey(db storage.DB) func(http.ResponseWriter, *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
 		key := r.URL.Query().Get("key")
+		log.Printf("Getting %s", key)
 		if key == "" {
 			http.Error(w, "missing key name in query string", http.StatusBadRequest)
 			return
