@@ -1,10 +1,11 @@
 package main
 
 import (
-	"github.com/netrebel/kube-api/handlers"
-	"github.com/netrebel/kube-api/storage"
 	"log"
 	"net/http"
+
+	"github.com/netrebel/kube-api/handlers"
+	"github.com/netrebel/kube-api/storage"
 )
 
 func main() {
