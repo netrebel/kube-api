@@ -19,3 +19,13 @@ docker run -d -p 8080:8080 kube-api
 mkdir -p ~/logs/kube-api
 docker run -d -p 8080:8080 -v ~/logs/kube-api:/app/logs kube-api
 ```
+
+# docker-compose
+
+* `docker-compose build api` builds the image
+* `docker-compose run api bash` connects you to the image
+* `docker-compose up -d` starts the service in detached mode
+
+# Logs
+
+`tail -f ~/logs/kube-api.log`

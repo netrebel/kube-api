@@ -16,7 +16,7 @@ ARG LOG_DIR=/app/logs
 RUN mkdir -p ${LOG_DIR}
 
 # Environment Variables
-ENV LOG_FILE_LOCATION=${LOG_DIR}/app.log 
+ENV LOG_FILE_LOCATION=${LOG_DIR}/kube-api.log 
 
 # Copy go mod and sum files
 COPY go.mod go.sum ./
