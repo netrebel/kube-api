@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/gorilla/mux"
 	"github.com/netrebel/kube-api/handlers"
 	"github.com/netrebel/kube-api/storage"
 	"gopkg.in/natefinch/lumberjack.v2"
@@ -14,9 +15,9 @@ func main() {
 	db := storage.NewInMemoryDB()
 
 	// this creates a new http.ServeMux, which is used to register handlers to execute in response to routes
-	mux := http.NewServeMux()
-	mux.HandleFunc("/get", handlers.GetKey(db))
-	mux.Handle("/put", handlers.PutKey(db))
+	mux := mux.NewRouter()
+	mux.HandleFunc("/get/{key}", handlers.GetKey(db))
+	mux.Handle("/put/{key}", handlers.PutKey(db))
 
 	// Configure Logging
 	logFileLocation := os.Getenv("LOG_FILE_LOCATION")

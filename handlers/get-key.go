@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/gorilla/mux"
 	"github.com/netrebel/kube-api/storage"
 )
 
@@ -13,7 +14,8 @@ import (
 // as "key" in the path. It gets the value of the key from db
 func GetKey(db storage.DB) func(http.ResponseWriter, *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
-		key := r.URL.Query().Get("key")
+		vars := mux.Vars(r)
+		key := vars["key"]
 		log.Printf("Getting %s", key)
 		if key == "" {
 			http.Error(w, "missing key name in query string", http.StatusBadRequest)

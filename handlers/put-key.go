@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/gorilla/mux"
 	"github.com/netrebel/kube-api/storage"
 )
 
@@ -13,7 +14,8 @@ import (
 // mux as "key" in the path. It expects the value to be in the body of the PUT request
 func PutKey(db storage.DB) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		key := r.URL.Query().Get("key")
+		vars := mux.Vars(r)
+		key := vars["key"]
 		if key == "" {
 			http.Error(w, "missing key name in path", http.StatusBadRequest)
 			return
