@@ -2,9 +2,10 @@ package handlers
 
 import (
 	"fmt"
-	"go-playground/http-mutex/storage"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/netrebel/kube-api/src/storage"
 )
 
 // PutKey returns an http.Handler that can set a value for the key registered by Gorilla

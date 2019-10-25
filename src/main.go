@@ -1,8 +1,8 @@
 package main
 
 import (
-	"go-playground/http-mutex/handlers"
-	"go-playground/http-mutex/storage"
+	"github.com/netrebel/kube-api/src/handlers"
+	"github.com/netrebel/kube-api/src/storage"
 	"log"
 	"net/http"
 )

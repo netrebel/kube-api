@@ -2,8 +2,9 @@ package handlers
 
 import (
 	"fmt"
-	"go-playground/http-mutex/storage"
 	"net/http"
+
+	"github.com/netrebel/kube-api/src/storage"
 )
 
 // GetKey returns an http.Handler that can get a key registered by Gorilla mux
