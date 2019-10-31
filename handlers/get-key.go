@@ -23,7 +23,7 @@ func GetKey(db storage.DB) func(http.ResponseWriter, *http.Request) {
 		}
 		val, err := db.Get(key)
 		if err == storage.ErrNotFound {
-			http.Error(w, "not found", http.StatusNotFound)
+			http.Error(w, "404 not found", http.StatusNotFound)
 			return
 		} else if err != nil {
 			http.Error(w, fmt.Sprintf("error getting value from database: %s", err), http.StatusInternalServerError)
