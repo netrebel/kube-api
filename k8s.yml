@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: kube-api
+  name: kube-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kube-api
+  template:
+    metadata:
+      labels:
+        app: kube-api
+    spec:
+      containers:
+        - image: miguelatdocker/kube-api:latest
+          name: kube-api
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-api
+spec:
+  type: NodePort
+  ports:
+    - name: "kube-api"
+      port: 8080
+  selector:
+    app: kube-api
