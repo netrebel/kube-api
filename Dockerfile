@@ -28,7 +28,7 @@ RUN go mod download
 COPY . .
 
 # Build the Go app
-RUN go build -o server .
+# RUN go build -o server .
 
 # Expose port 8080 to the outside world
 EXPOSE 8080
@@ -37,4 +37,5 @@ EXPOSE 8080
 VOLUME [${LOG_DIR}]
 
 # Command to run the executable
-CMD ["./server"]
+# CMD ["./server"]
+CMD ["go", "run", "app.go"]

@@ -8,4 +8,4 @@ services:
       - '$HOME/logs:/app/logs'
     ports:
       - "8080:8080"
-    command: "./server"
+    command: "go run app.go"
